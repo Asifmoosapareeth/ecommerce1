@@ -7,6 +7,7 @@ import 'package:ecommerce_app/view/widgets/custom_appbar.dart';
 import 'package:ecommerce_app/view/widgets/grid_layout.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:hive/hive.dart';
 import '../../model/product_model.dart';
 import '../../service/product_service.dart';
 import '../constants/image_string.dart';
@@ -18,8 +19,8 @@ import '../widgets/promo_slider.dart';
 import 'cart_page.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
+   HomeScreen({super.key});
+  final Box _boxLogin = Hive.box("login");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 10),
                   CustomAppBar(
                     title: Text(
-                      'Asif Moosa',
+                      _boxLogin.get("userName"),
                       style: Theme.of(context)
                           .textTheme
                           .headlineSmall!
