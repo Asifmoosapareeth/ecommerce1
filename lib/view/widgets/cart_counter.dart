@@ -16,7 +16,7 @@ class CartCounterIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CartController cartController = Get.find(); // Get the CartController instance
+    final CartController cartController = Get.find();
 
     return Stack(
       children: [
@@ -27,7 +27,7 @@ class CartCounterIcon extends StatelessWidget {
         Positioned(
           top: 1,
           right: 5,
-          child: Obx(() { // Use Obx to listen to changes in the cart items
+          child: Obx(() {
             return Container(
               width: 15,
               height: 15,
@@ -37,7 +37,7 @@ class CartCounterIcon extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  '${cartController.totalQuantity}', // Display the total count of items
+                  '${cartController.totalQuantity}',
                   style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
               ),

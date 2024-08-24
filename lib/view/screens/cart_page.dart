@@ -1,4 +1,3 @@
-// lib/view/cart_page.dart
 
 import 'package:ecommerce_app/view/screens/checkout_page.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class CartPage extends StatelessWidget {
         backgroundColor: Colors.blue,
         elevation: 0,
       ),
-      body: Obx(() { // Use Obx to reactively update the UI
+      body: Obx(() {
         if (cartController.items.isEmpty) {
           return Center(
             child: Column(

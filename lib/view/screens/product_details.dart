@@ -1,4 +1,5 @@
 
+import 'package:ecommerce_app/view/screens/checkout_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -63,14 +64,14 @@ class ProductDetailsPage extends StatelessWidget {
                       hoverColor: Colors.blue,
                       focusColor: Colors.blue,
                       onPressed: () {
-                        // Use CartController to add product to cart
+
                         cartController.addToCart(product);
                       },
                       icon: Center(child: Icon(CupertinoIcons.plus,size: 10,)),
                     ),
                   ),
                 ),
-                Obx(() { // Use Obx to listen to changes in the cart items
+                Obx(() {
                   int quantity = cartController.getQuantity(product);
                   return Container(
                     width: 25,
@@ -81,7 +82,7 @@ class ProductDetailsPage extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        '$quantity', // Display the quantity of the product
+                        '$quantity',
                         style: TextStyle(fontSize: 10, color: Colors.white),
                       ),
                     ),
@@ -103,7 +104,9 @@ class ProductDetailsPage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 50,),
-            ElevatedButton(onPressed: (){},
+            ElevatedButton(onPressed: (){
+              Get.to(PaymentPage());
+            },
                 child: Text('But Now'))
           ],
         ),

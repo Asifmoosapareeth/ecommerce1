@@ -121,7 +121,7 @@ class _PaymentPageState extends State<PaymentPage> {
             ),
             keyboardType: TextInputType.number,
             maxLength: 3,
-            obscureText: true, // Mask CVV input for security
+            obscureText: true,
           ),
         ],
       );
@@ -139,8 +139,8 @@ class _PaymentPageState extends State<PaymentPage> {
   }
 
   void _finalizeTransaction(BuildContext context) {
-    // Simulate transaction processing
-    String transactionId = Uuid().v4(); // Generate a random transaction ID
+
+    String transactionId = Uuid().v4();
     DateTime purchaseDate = DateTime.now();
 
     // Validate input
@@ -153,7 +153,7 @@ class _PaymentPageState extends State<PaymentPage> {
       return;
     }
 
-    // Generate the PDF receipt
+
     PdfGenerator.generateReceipt(
       cartController.items,
       cartController.quantities,
@@ -162,7 +162,7 @@ class _PaymentPageState extends State<PaymentPage> {
       purchaseDate,
     );
 
-    // Show a success message
+
     Get.snackbar(
       'Payment Successful',
       'Transaction ID: $transactionId',
@@ -170,7 +170,7 @@ class _PaymentPageState extends State<PaymentPage> {
       duration: Duration(seconds: 5),
     );
 
-    // Navigate back to the home or another page
+
     Get.to(HomeScreen());
   }
 }
